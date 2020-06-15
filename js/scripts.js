@@ -10,7 +10,7 @@ AddressBook.prototype.addContact = function(contact) {
 }
 
 AddressBook.prototype.assignID = function() {
-  this.currentID += 1;
+  this.currentID ++;
   return this.currentID;
 }
 
@@ -55,4 +55,4 @@ let contact2 = new Contact("Grace", "Hopper", "503-555-0199");
 addressBook.addContact(contact);
 addressBook.addContact(contact2);
 
-document.write(addressBook.contacts[0].firstName);
+console.log(addressBook.contacts[0].firstName);

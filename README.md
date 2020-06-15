@@ -13,12 +13,10 @@ _This project will take a user input that will be saved and displayed into an ad
 |   Behavior     |    Example Input      |      Example Output        |
 |----------------|-----------------------|----------------------------|
 |Project will return an array of contacts saved when called | addressBook.contacts; | [Contact, Contact] |
-|Project will add user inputs to address book as contact|  | [contactname, contactEmail, contactPhoneNum] |
+|Project will add user inputs to address book as contact| new addressBook("Kevin Jones", "kevinjones@email.com", "000-123-4567") | [contactname, contactEmail, contactPhoneNum] |
+|Project will create a button to remove contact from address book| $("#removeButton") | Remove [contactname, contactEmail, contactPhoneNum] |
+|Project will find specific contacts within the addressBook through a search function | addressBook.prototype.findContact | return ["Kevin Jones", "kevinjones@email.com", "000-123-4567"]
 
-// Add contacts
-// Remove contacts
-// Call back an array of contacts
-//
 
 ## Setup/Installation Requirements
 
