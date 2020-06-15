@@ -1,58 +1,53 @@
 // Business Logic for Address Book ---------
-function AddressBook() {
-  this.contacts=[];
-  this.currentID=0;
-}
 
-AddressBook.prototype.addContact = function(contact) {
-  contact.id = this.assignId();  
-  this.contacts.push(contact);
-}
 
-AddressBook.prototype.assignID = function() {
-  this.currentID += 1;
-  return this.currentID;
-}
 
-AddressBook.prototype.findContact = function(id) {
-  for (let i=0; i< this.contacts.length; i++) {
-    if (this.contacts[i]) {  
-      if (this.contacts[i].id == id) {
-        return this.contacts[i];
-      }
-    }                      
-  };
-  return false;
-}
+// AddressBook.prototype.findContact = function(id) {
+//   for (let i=0; i< this.contacts.length; i++) {
+//     if (this.contacts[i]) {  
+//       if (this.contacts[i].id == id) {
+//         return this.contacts[i];
+//       }
+//     }                      
+//   };
+//   return false;
+// }
 
-AddressBook.prototype.deleteContact = function(id) {
-  for (let i=0; i< this.contacts.length; i++) {
-    if (this.contacts[i]) {  
-      if (this.contacts[i].id == id) {
-        delete this.contacts[i];
-        return true;
-      }
-    }               
-  };
-  return false;
-}
-
+// AddressBook.prototype.deleteContact = function(id) {
+//   for (let i=0; i< this.contacts.length; i++) {
+//     if (this.contacts[i]) {  
+//       if (this.contacts[i].id == id) {
+//         delete this.contacts[i];
+//         return true;
+//       }
+//     }               
+//   };
+//   return false;
+// }
 
 // Business Logic for Contacts ---------
-function Contact(firstName, lastName, phone) {
+function Contact(firstName, lastName, phone, email) {
   this.firstName = firstName;
-  this.lastName =  lastName;
+  this.lastName = lastName;
   this.phone = phone;
+  this.email = email;
 }
 
 Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
 
-let addressBook = new AddressBook();
-let contact = new Contact("Ada", "Lovelace", "503-555-0100");
-let contact2 = new Contact("Grace", "Hopper", "503-555-0199");
-addressBook.addContact(contact);
-addressBook.addContact(contact2);
+$(document).ready(function() {
+  $("form#inputContent").submit(function(event) {
+    event.preventDefault();
+    let addressBook = new AddressBook();
+    let contact = new Contact($("#firstName").val(), $("#lastName").val(), $("#phone").val(), $("#email").val());
+    console.log(contact);
+    $(".currentContacts").show();
+  });
 
-document.write(addressBook.contacts[0].firstName);
+console.log(contact);
+console.log(addressBook);
+});
+// addressBook.addContact(contact);
+// $("contact.id").val(), 
