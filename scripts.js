@@ -40,7 +40,7 @@ Contact.prototype.fullName = function() {
 $(document).ready(function() {
   $("form#inputContent").submit(function(event) {
     event.preventDefault();
-    let addressBook = new AddressBook();
+    
     let contact = new Contact($("#firstName").val(), $("#lastName").val(), $("#phone").val(), $("#email").val());
     console.log(contact);
     $(".currentContacts").show();

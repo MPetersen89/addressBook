@@ -5,6 +5,10 @@ function Contact(firstName, lastName, phone, email) {
   this.email = email;
 }
 
+Contact.prototype.fullName = function() {
+  return this.firstName + " " + this.lastName;
+}
+
 function AddressBook() {
   this.contacts=[];
   this.currentID=0;
@@ -17,7 +21,7 @@ AddressBook.prototype.assignID = function() {
 }
 
 AddressBook.prototype.addContact = function(contact) {
-  contact.id = this.assignId();  
+  contact.id = this.assignID();  
   this.contacts.push(contact);
 }
 
@@ -27,6 +31,14 @@ $(document).ready(function() {
     let addressBook = new AddressBook();
     let contact = new Contact($("#firstName").val(), $("#lastName").val(), $("#phone").val(), $("#email").val());
     console.log(contact);
+    addressBook.addContact(contact);
     console.log(addressBook);
+    $(".currentContacts").show();
+    $("#contactOutput").append("<li>" + contact.firstName + " " + contact.lastName + ", " + contact.phone + ", " + contact.email + "</li>");
   });
 })
+
+
+
+
+
